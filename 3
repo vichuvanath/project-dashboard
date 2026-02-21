@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Papers</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0b1220,#0f1b2e);
+  color:#cbd5e1;
+  min-height:100vh;
+  padding-bottom:80px;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  font-size:20px;
+  font-weight:600;
+  color:white;
+}
+
+/* SEARCH */
+.search-box{
+  margin:0 20px 20px;
+  background:#0f172a;
+  border:1px solid #334155;
+  border-radius:14px;
+  padding:14px;
+  display:flex;
+  align-items:center;
+}
+
+.search-box input{
+  flex:1;
+  background:transparent;
+  border:none;
+  outline:none;
+  color:white;
+  font-size:14px;
+}
+
+/* FILTERS */
+.filters{
+  display:flex;
+  gap:10px;
+  padding:0 20px 20px;
+  overflow-x:auto;
+}
+
+.chip{
+  padding:8px 14px;
+  border-radius:20px;
+  background:#0f172a;
+  border:1px solid #334155;
+  font-size:13px;
+  white-space:nowrap;
+}
+
+.chip.active{
+  background:#2563eb;
+  border:none;
+  color:white;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.05);
+  margin:15px 20px;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+}
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.title{
+  font-weight:600;
+  font-size:16px;
+  color:white;
+}
+
+.meta{
+  font-size:13px;
+  color:#94a3b8;
+  margin-top:5px;
+}
+
+.status{
+  font-size:12px;
+  padding:5px 10px;
+  border-radius:12px;
+  font-weight:500;
+}
+
+.final{background:#064e3b;color:#22c55e;}
+.midterm{background:#1e3a8a;color:#60a5fa;}
+.quiz{background:#78350f;color:#facc15;}
+
+.actions{
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px solid #1e293b;
+  display:flex;
+  justify-content:space-between;
+  font-size:14px;
+}
+
+.actions span{
+  cursor:pointer;
+}
+
+.download{color:#3b82f6;}
+.delete{color:#ef4444;}
+
+/* FLOAT BUTTON */
+.fab{
+  position:fixed;
+  right:20px;
+  bottom:90px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#2563eb;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:30px;
+  color:white;
+  box-shadow:0 10px 30px rgba(37,99,235,0.5);
+  cursor:pointer;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:70px;
+  background:#0f172a;
+  border-top:1px solid #1e293b;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  font-size:13px;
+}
+
+.bottom-nav div{
+  text-align:center;
+  color:#94a3b8;
+}
+
+.bottom-nav .active{
+  color:#3b82f6;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  ← Manage Papers ⚙
+</div>
+
+<div class="search-box">
+  🔍
+  <input type="text" placeholder="Search by code or subject...">
+</div>
+
+<div class="filters">
+  <div class="chip active">Year: 2023 ✕</div>
+  <div class="chip">Dept: CS ▾</div>
+  <div class="chip">Subject ▾</div>
+</div>
+
+<!-- CARD 1 -->
+<div class="card">
+  <div class="card-top">
+    <div>
+      <div class="title">CS101 - Data Structures</div>
+      <div class="meta">Computer Science • Fall 2023 • PDF • 2.4 MB</div>
+    </div>
+    <div class="status final">Final</div>
+  </div>
+  <div class="actions">
+    <span>👁 View</span>
+    <span class="download">⬇ Download</span>
+    <span class="delete">🗑</span>
+  </div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card">
+  <div class="card-top">
+    <div>
+      <div class="title">MAT202 - Linear Algebra</div>
+      <div class="meta">Mathematics • Fall 2023 • PDF • 1.8 MB</div>
+    </div>
+    <div class="status midterm">Midterm</div>
+  </div>
+  <div class="actions">
+    <span>👁 View</span>
+    <span class="download">⬇ Download</span>
+    <span class="delete">🗑</span>
+  </div>
+</div>
+
+<!-- CARD 3 -->
+<div class="card">
+  <div class="card-top">
+    <div>
+      <div class="title">PHY101 - Mechanics</div>
+      <div class="meta">Physics • Spring 2023 • PDF • 3.1 MB</div>
+    </div>
+    <div class="status final">Final</div>
+  </div>
+  <div class="actions">
+    <span>👁 View</span>
+    <span class="download">⬇ Download</span>
+    <span class="delete">🗑</span>
+  </div>
+</div>
+
+<!-- CARD 4 -->
+<div class="card">
+  <div class="card-top">
+    <div>
+      <div class="title">PSY201 - Intro to Psych</div>
+      <div class="meta">Psychology • Fall 2022 • PDF • 950 KB</div>
+    </div>
+    <div class="status quiz">Quiz 1</div>
+  </div>
+  <div class="actions">
+    <span>👁 View</span>
+    <span class="download">⬇ Download</span>
+    <span class="delete">🗑</span>
+  </div>
+</div>
+
+<div class="fab">+</div>
+
+<div class="bottom-nav">
+  <div>🏠<br>Home</div>
+  <div class="active">📂<br>Papers</div>
+  <div>🎓<br>Classes</div>
+  <div>👤<br>Profile</div>
+</div>
+
+</body>
+</html>
